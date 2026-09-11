@@ -1,0 +1,29 @@
+{
+  "actorSpecification": 1,
+  "fields": {},
+  "views": {
+    "overview": {
+      "title": "Opportunities",
+      "transformation": {
+        "fields": ["opportunityScore", "title", "language", "languageReviews", "languageNegativeRate", "globalNegativeRate", "negativeGapPoints", "complaintHitsNegative", "storePageUntranslated", "developer", "supportEmail", "url"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "opportunityScore": { "label": "Score", "format": "number" },
+          "title": { "label": "Game" },
+          "language": { "label": "Lang" },
+          "languageReviews": { "label": "Lang reviews", "format": "number" },
+          "languageNegativeRate": { "label": "Lang neg. rate", "format": "number" },
+          "globalNegativeRate": { "label": "Global neg. rate", "format": "number" },
+          "negativeGapPoints": { "label": "Gap (pp)", "format": "number" },
+          "complaintHitsNegative": { "label": "Neg. complaints", "format": "number" },
+          "storePageUntranslated": { "label": "Store untranslated", "format": "boolean" },
+          "developer": { "label": "Developer" },
+          "supportEmail": { "label": "Support email" },
+          "url": { "label": "Store page", "format": "link" }
+        }
+      }
+    }
+  }
+}

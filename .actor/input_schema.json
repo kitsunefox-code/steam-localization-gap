@@ -1,0 +1,170 @@
+{
+  "title": "Steam Localization Gap Finder input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "language": {
+      "title": "Language community to analyse",
+      "type": "string",
+      "description": "Steam language code of the player community you care about. Built-in translation-complaint keywords exist for all listed languages.",
+      "editor": "select",
+      "default": "japanese",
+      "enum": [
+        "japanese",
+        "schinese",
+        "tchinese",
+        "koreana",
+        "german",
+        "french",
+        "spanish",
+        "latam",
+        "brazilian",
+        "portuguese",
+        "russian",
+        "polish",
+        "italian",
+        "turkish",
+        "thai",
+        "vietnamese",
+        "ukrainian",
+        "czech",
+        "hungarian",
+        "dutch",
+        "swedish",
+        "danish",
+        "finnish",
+        "norwegian",
+        "romanian",
+        "greek",
+        "bulgarian",
+        "indonesian",
+        "arabic"
+      ],
+      "enumTitles": [
+        "Japanese",
+        "Chinese (Simplified)",
+        "Chinese (Traditional)",
+        "Korean",
+        "German",
+        "French",
+        "Spanish (Spain)",
+        "Spanish (Latin America)",
+        "Portuguese (Brazil)",
+        "Portuguese (Portugal)",
+        "Russian",
+        "Polish",
+        "Italian",
+        "Turkish",
+        "Thai",
+        "Vietnamese",
+        "Ukrainian",
+        "Czech",
+        "Hungarian",
+        "Dutch",
+        "Swedish",
+        "Danish",
+        "Finnish",
+        "Norwegian",
+        "Romanian",
+        "Greek",
+        "Bulgarian",
+        "Indonesian",
+        "Arabic"
+      ]
+    },
+    "appIds": {
+      "title": "Specific Steam app IDs (optional)",
+      "type": "array",
+      "description": "Analyse only these games and skip discovery. Leave empty to discover games via the filters below.",
+      "editor": "stringList",
+      "prefill": []
+    },
+    "steamTagIds": {
+      "title": "Steam tag IDs for discovery",
+      "type": "array",
+      "description": "Numeric Steam tag IDs, e.g. 492 = Indie, 122 = RPG, 1663 = FPS, 4182 = Simulation, 599 = Roguelike. Games must carry all listed tags. Only used when appIds is empty.",
+      "editor": "stringList",
+      "default": [
+        "492"
+      ]
+    },
+    "releasedWithinMonths": {
+      "title": "Released within the last N months",
+      "type": "integer",
+      "description": "Discovery only looks at games released within this window.",
+      "default": 18,
+      "minimum": 1,
+      "maximum": 120
+    },
+    "minReviews": {
+      "title": "Minimum total reviews",
+      "type": "integer",
+      "description": "Skip games with fewer total Steam reviews (all languages).",
+      "default": 30,
+      "minimum": 0
+    },
+    "maxReviews": {
+      "title": "Maximum total reviews",
+      "type": "integer",
+      "description": "Skip games with more total reviews. Useful to focus on indie-sized titles that still answer their support email.",
+      "default": 4000,
+      "minimum": 1
+    },
+    "maxGames": {
+      "title": "Maximum games to analyse",
+      "type": "integer",
+      "description": "Hard cap on analysed games per run. Each analysed game is one billable event.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 2000
+    },
+    "reviewPagesPerGame": {
+      "title": "Review pages per game (100 reviews each)",
+      "type": "integer",
+      "description": "How many pages of recent reviews in the target language to scan for complaints. 1 is enough for indie titles.",
+      "default": 1,
+      "minimum": 1,
+      "maximum": 5
+    },
+    "maxQuotes": {
+      "title": "Max quoted complaints per game",
+      "type": "integer",
+      "default": 3,
+      "minimum": 0,
+      "maximum": 20,
+      "description": "How many complaint excerpts to keep per game in complaintQuotes."
+    },
+    "extraKeywords": {
+      "title": "Extra complaint keywords",
+      "type": "array",
+      "description": "Added to the built-in keyword list for the chosen language (case-insensitive substring match).",
+      "editor": "stringList",
+      "prefill": []
+    },
+    "minOpportunityScore": {
+      "title": "Minimum opportunity score to output",
+      "type": "integer",
+      "description": "Games scoring below this are analysed but not pushed (and not billed).",
+      "default": 0,
+      "minimum": 0
+    },
+    "concurrency": {
+      "title": "Concurrency",
+      "type": "integer",
+      "description": "Parallel games. Keep low; Steam rate-limits aggressively.",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 5
+    },
+    "requestDelaySeconds": {
+      "title": "Delay between Steam requests (seconds)",
+      "type": "string",
+      "description": "Global polite delay between requests. Lower values risk HTTP 429.",
+      "default": "0.35",
+      "editor": "textfield"
+    }
+  },
+  "required": [
+    "language"
+  ]
+}

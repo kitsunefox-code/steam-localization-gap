@@ -1,0 +1,16 @@
+[
+  {
+    "actor-start": {
+      "eventTitle": "Actor start",
+      "eventDescription": "Flat fee per run.",
+      "eventPriceUsd": 0.001
+    }
+  },
+  {
+    "game-analyzed": {
+      "eventTitle": "Game analysed",
+      "eventDescription": "One game with language-vs-global negative-rate gap, quoted complaints, store-page check and developer contact.",
+      "eventPriceUsd": 0.006
+    }
+  }
+]
