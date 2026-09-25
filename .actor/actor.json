@@ -5,11 +5,21 @@
   "description": "Find Steam games whose Japanese, Chinese, Korean or other language players are unhappier than the global average, with translation complaints quoted from reviews, untranslated store pages and developer contacts.",
   "version": "0.1",
   "buildTag": "latest",
-  "meta": { "templateId": "python-start" },
+  "meta": {
+    "templateId": "python-start"
+  },
   "input": "./input_schema.json",
   "dockerfile": "../Dockerfile",
   "readme": "../README.md",
-  "storages": { "dataset": "./dataset_schema.json" },
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
   "minMemoryMbytes": 256,
-  "maxMemoryMbytes": 1024
+  "maxMemoryMbytes": 1024,
+  "categories": [
+    "MARKETING",
+    "LEAD_GENERATION",
+    "GAMES",
+    "BUSINESS"
+  ]
 }
